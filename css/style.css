@@ -1073,6 +1073,120 @@ html.page-app {
   @media (prefers-reduced-motion: reduce) {
     .sheet, .sheet-layer__scrim { animation: none; }
   }
+
+  /* ---------- Desktop top bar (hidden on phones) ---------- */
+  .topbar { display: none; }
+  .hero--desktop { display: none; }
+
+  /* ---------- Desktop (960px and up) ---------- */
+  @media (min-width: 960px) {
+    body { background: var(--bg); }
+
+    .app {
+      max-width: 1180px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 0 40px;
+      border-radius: 0;
+      box-shadow: none;
+      overflow: visible;
+    }
+    .tabbar { display: none; }
+    .mx { margin-left: 0; margin-right: 0; }
+
+    /* Top bar, mirrors the home page header */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 96px;
+    }
+    .topbar__logo img { height: 60px; width: auto; mix-blend-mode: multiply; }
+    .topbar__nav { display: flex; align-items: center; gap: 32px; }
+    .topbar__nav > a { font-size: 15px; font-weight: 500; color: var(--text-3); }
+    .topbar__nav > a:hover { color: var(--primary); }
+    .topbar__nav > .topbar__cta {
+      height: 42px;
+      padding: 0 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow-cta);
+    }
+    .topbar__nav > .topbar__cta:hover { background: var(--primary-hover); color: #fff; }
+    .topbar__nav > .topbar__profile {
+      width: 42px; height: 42px;
+      display: grid;
+      place-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--text);
+    }
+    .topbar__nav > .topbar__profile[aria-current="page"] { color: var(--primary); border-color: var(--primary-ring); }
+
+    /* Profile pages: profile card on the left, reports on the right */
+    .content:has(> .page-head) {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      column-gap: 40px;
+      align-content: start;
+      align-items: start;
+      padding-bottom: 64px;
+    }
+    .content > .page-head { grid-column: 1 / -1; padding: 8px 0 0; }
+    .page-title { font-size: 36px; }
+    .content:has(> .page-head) > :not(.page-head) { grid-column: 2; }
+    .content:has(> .page-head) > .card {
+      grid-column: 1;
+      grid-row: 2 / span 3;
+      position: sticky;
+      top: 24px;
+    }
+    .content:has(> .page-head):not(:has(> .card)) > * { grid-column: 1 / -1; }
+    .reports { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+    .empty { padding-top: 64px; }
+
+    /* Edit profile: centered column */
+    .content--padded { width: 100%; max-width: 640px; margin: 0 auto; padding: 8px 0 64px; }
+    .content--padded .actions-bottom { flex-direction: row-reverse; justify-content: flex-start; align-items: center; gap: 16px; }
+    .content--padded .actions-bottom .btn--block { width: auto; padding: 0 28px; }
+
+    /* Login / sign-up: form on the left half, photo on the right half */
+    .app:has(> .content--auth) { max-width: none; padding: 0; }
+    .content--auth {
+      width: 50%;
+      min-height: 100vh;
+      padding: 48px 56px;
+      justify-content: center;
+    }
+    .content--auth > * { width: 100%; max-width: 440px; margin-left: auto; margin-right: auto; }
+    .content--auth > .hero {
+      display: block;
+      position: fixed;
+      top: 24px; right: 24px;
+      width: calc(50% - 48px);
+      max-width: none;
+      height: calc(100vh - 48px);
+      margin: 0;
+      border-radius: 32px;
+    }
+    .content--auth .actions-bottom { margin-top: 28px; padding-top: 0; }
+
+    /* Delete confirmation: centered dialog instead of a bottom sheet */
+    .sheet-layer { align-items: center; }
+    .sheet {
+      max-width: 440px;
+      border-radius: 24px;
+      padding: 28px;
+      animation: fade 0.2s ease-out;
+    }
+    .sheet__handle { display: none; }
+    .sheet__icon { margin-top: 0; }
+  }
 }
 
 @keyframes fade { from { opacity: 0; } }

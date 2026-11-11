@@ -8,6 +8,15 @@
 </head>
 <body>
   <div class="app">
+    <header class="topbar">
+      <a class="topbar__logo" href="../index.html"><img src="../assets/images/logo.png" alt="Novaria Signal" /></a>
+      <nav class="topbar__nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="#">Signalements</a>
+        <a class="topbar__cta" href="report.html"><svg class="i" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg> Signaler</a>
+        <a class="topbar__profile" href="profil-filtre-vide.html" aria-label="Mon profil" aria-current="page"><svg class="i" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></a>
+      </nav>
+    </header>
     <main class="content">
       <header class="page-head">
         <h1 class="page-title">Mon profil</h1>
@@ -15,7 +24,7 @@
 
       <nav class="segmented mx mt-20" aria-label="Signalements">
         <a href="profil-filtre-vide.html" aria-current="page">Mes signalements · 3</a>
-        <a href="#">Soutenus · 4</a>
+        <a href="profil-soutenus.html">Soutenus · 4</a>
       </nav>
 
       <!-- "Résolu" is pre-selected; no resolved report exists, so the empty state shows.
@@ -80,9 +89,9 @@
     </main>
 
     <nav class="tabbar" aria-label="Navigation principale">
-      <a href="#" aria-label="Accueil"><svg class="i" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a>
+      <a href="../index.html" aria-label="Accueil"><svg class="i" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a>
       <a href="#" aria-label="Les signalements"><svg class="i" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></a>
-      <a href="#" aria-label="Signaler"><svg class="i" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg></a>
+      <a href="report.html" aria-label="Signaler"><svg class="i" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg></a>
       <a href="profil-filtre-vide.html" aria-label="Mon profil" aria-current="page"><svg class="i" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></a>
     </nav>
   </div>
