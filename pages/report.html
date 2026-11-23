@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signaler un problème – Novaria Signal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/report.css">
+  <link rel="icon" type="image/png" href="../assets/icons/favicon.ico" />
+</head>
+<body>
+  <div class="app">
+
+    <header class="header">
+      <a href="../index.html" class="logo" aria-label="Novaria Signal">
+        <img src="../assets/images/logo.png" alt="Novaria Signal">
+      </a>
+      <nav class="topnav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../pages/all-reports.html">Signalements</a>
+        <a href="../pages/report.html" class="topnav-cta">
+          <i class="fa-regular fa-flag"></i> Signaler
+        </a>
+        <a href="../pages/profile.html" class="topnav-profile" aria-label="Profil">
+          <i class="fa-regular fa-user"></i>
+        </a>
+      </nav>
+
+      <button class="menu-btn" aria-label="Ouvrir le menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <main class="content report-page">
+
+      <section class="page-head">
+        <h1>Signaler un problème</h1>
+        <p>Décrivez le problème en quelques informations. Votre signalement sera transmis aux services concernés.</p>
+      </section>
+
+      <form class="report-form" action="#" method="post" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label for="type">Type de problème</label>
+          <div class="field select">
+            <i class="fa-solid fa-table-cells-large"></i>
+            <select id="type" name="type" required>
+              <option value="" disabled selected>Choisir un type</option>
+              <option value="voirie">Voirie</option>
+              <option value="transport">Transport</option>
+              <option value="eclairage">Éclairage public</option>
+              <option value="dechets">Déchets</option>
+              <option value="autre">Autre</option>
+            </select>
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="title">Titre</label>
+          <div class="field">
+            <i class="fa-solid fa-pen"></i>
+            <input type="text" id="title" name="title" placeholder="Ex. : Nid-de-poule" maxlength="80" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <div class="field textarea">
+            <textarea id="description" name="description" rows="4" maxlength="500" placeholder="Décrivez le problème : ce que vous voyez, depuis quand, impact..." required></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="place">Lieu</label>
+          <div class="field">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text" id="place" name="place" placeholder="Rue, quartier, ville" required>
+            <button type="button" class="locate" aria-label="Utiliser ma position">
+              <i class="fa-solid fa-crosshairs"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="label">Photo <small>(facultatif)</small></span>
+          <label class="upload" for="photo">
+            <i class="fa-solid fa-camera"></i>
+            <span class="upload-text">
+              <strong>Ajouter une photo</strong>
+              <small>JPG ou PNG, 5 Mo maximum</small>
+            </span>
+          </label>
+          <input type="file" id="photo" name="photo" accept="image/*" hidden>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          <i class="fa-regular fa-paper-plane"></i> Envoyer le signalement
+        </button>
+
+      </form>
+    </main>
+
+    <nav class="tabbar" aria-label="Navigation principale">
+      <a href="../index.html" class="tab" aria-label="Accueil"><i class="fa-solid fa-house"></i></a>
+      <a href="../pages/all-reports.html" class="tab" aria-label="Signalements"><i class="fa-solid fa-list-check"></i></a>
+      <a href="../pages/report.html" class="tab active" aria-label="Signaler" aria-current="page"><i class="fa-regular fa-flag"></i></a>
+      <a href="../pages/profile.html" class="tab" aria-label="Profil"><i class="fa-regular fa-user"></i></a>
+    </nav>
+
+  </div>
+</body>
+</html>
