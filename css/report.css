@@ -1,208 +1,140 @@
-/* ---------- Mobile ---------- */
-.content.report-page {
-  display: block;
-  padding: 0 0 96px;
+/* Report form page */
+.page-main {
+  padding-top: 44px;
 }
-
-.report-page .page-head h1 {
-  margin-top: 4px;
-  font-size: 26px;
-  line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: -0.3px;
+.form-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: start;
+  gap: 38px;
 }
-
-.report-page .page-head p {
-  margin-top: 8px;
-  font-size: 14px;
-  line-height: 1.45;
-  color: var(--text-soft);
-}
-
-.report-form {
-  margin-top: 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form-group > label:not(.upload),
-.form-group > .label {
-  font-size: 13.5px;
-  font-weight: 500;
-}
-
-.form-group small {
-  font-weight: 400;
-  color: var(--text-soft);
-}
-
-/* Champs (même style que la page signalements) */
-.field {
-  height: 48px;
-  min-width: 0;
-  padding: 0 14px;
-  display: flex;
+.back-link {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: white;
-  border: 1px solid var(--blue-border);
-  border-radius: 999px;
-  font-size: 14px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  margin-bottom: 24px;
 }
-
-.field:hover,
-.field:focus-within {
-  border-color: var(--blue);
+.back-link i {
+  margin-right: 5px;
 }
-
-.field:focus-within {
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+.form-layout .lead {
+  margin-bottom: 20px;
 }
-
-.field > i:first-child {
-  color: var(--blue);
-  font-size: 14px;
+.form-panel {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
 }
-
-.field .chev {
-  margin-left: auto;
-  color: var(--text-soft);
+.form-panel label {
+  margin-top: 5px;
   font-size: 11px;
-  pointer-events: none;
+  font-weight: 700;
 }
-
-.field input,
-.field select,
-.field textarea {
-  flex: 1;
-  min-width: 0;
-  border: 0;
+.form-panel input,
+.form-panel textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
   outline: 0;
-  background: transparent;
-  font: inherit;
-  color: var(--text);
+  font-size: 12px;
 }
-
-.field select {
-  height: 100%;
-  cursor: pointer;
+.form-panel select {
+  width: 100%;
+  height: 44px;
+  padding: 0 36px 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: white;
+  font-size: 12px;
+  line-height: normal;
   appearance: none;
   -webkit-appearance: none;
-}
-
-.field input::placeholder,
-.field textarea::placeholder {
-  color: #6b7280;
-}
-
-.field.textarea {
-  height: auto;
-  padding: 12px 16px;
-  border-radius: 18px;
-}
-
-.field textarea {
-  resize: vertical;
-  min-height: 96px;
-  line-height: 1.45;
-}
-
-.locate {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  margin-right: -6px;
-  background: var(--blue-light);
-  color: var(--blue);
-  border-radius: 50%;
-  font-size: 14px;
-}
-
-/* Upload photo */
-.upload {
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: white;
-  border: 1.5px dashed var(--blue-border);
-  border-radius: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%2374839a' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 13px center;
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
 }
-
-.upload:hover {
-  border-color: var(--blue);
-  background: var(--blue-light);
+.form-panel input:focus,
+.form-panel textarea:focus,
+.form-panel select:focus {
+  border-color: #8fbaf2;
+  box-shadow: 0 0 0 3px #2878e812;
 }
-
-.upload > i {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
+.form-panel textarea {
+  resize: vertical;
+}
+.image-field {
+  position: relative;
   display: grid;
-  place-items: center;
-  background: var(--blue-light);
+  justify-items: center;
+  gap: 8px;
+  padding: 18px 12px;
+  border: 1px dashed #b9cee8;
+  border-radius: 8px;
   color: var(--blue);
-  border-radius: 10px;
-  font-size: 17px;
+  background: #f8fbff;
+  cursor: pointer;
+  font-weight: 500;
 }
-
-.upload-text {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+.image-label { margin-top: 5px; font-size: 11px; font-weight: 700; }
+.image-field > i { font-size: 20px; }
+.image-field > span { font-size: 11px; }
+.image-field small { color: var(--muted); font-size: 10px; }
+.image-field:focus-within { outline: 2px solid #8fbaf2; outline-offset: 2px; }
+.image-field .image-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
 }
-
-.upload-text strong {
-  font-size: 14px;
+.required {
+  color: #d9715d;
 }
-
-.upload-text small {
-  font-size: 12px;
-  color: var(--text-soft);
+.optional {
+  color: #98a2b1;
+  font-weight: 400;
 }
-
-.report-form .btn-primary {
+.location-input {
+  position: relative;
+}
+.location-input i {
+  position: absolute;
+  top: 13px;
+  left: 12px;
+  color: var(--blue);
+}
+.location-input input {
+  padding-left: 34px;
+}
+.privacy-note {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+.privacy-note i {
+  margin-right: 5px;
+  color: #39a77c;
+}
+.submit-button {
+  width: 100%;
   margin-top: 6px;
 }
 
-/* =========================================================
-   Version PC
-   ========================================================= */
-@media (min-width: 600px) {
-  .content.report-page {
-    padding: 8px 0 72px;
+@media (max-width: 700px) {
+  .page-main {
+    padding-top: 28px;
   }
-
-  .report-page .page-head h1 {
-    font-size: clamp(28px, 4vw, 40px);
-    letter-spacing: -0.8px;
+  .form-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
-
-  .report-page .page-head p {
-    margin-top: 10px;
-    font-size: clamp(14px, 1.6vw, 17px);
-    max-width: 560px;
-  }
-
-  .report-form {
-    max-width: 640px;
-    margin-top: 28px;
-    gap: 22px;
-  }
-
-  .report-form .btn-primary {
-    align-self: flex-start;
+  .form-panel {
+    padding: 15px;
   }
 }

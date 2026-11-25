@@ -1,103 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connexion — Novaria Signal</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/auth.css">
-  <link rel="icon" type="image/png" href="../assets/icons/favicon.ico">
-</head>
-
-<body>
-  <div class="app">
-
-    <header class="header">
-      <a href="../index.html" class="logo" aria-label="Novaria Signal">
-        <img src="../assets/images/logo.png" alt="Novaria Signal">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f8fc" />
+    <title>Connexion — Novaria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Novaria, accueil">
+        <img class="brand-logo" src="../assets/logo.png" alt="Novaria" />
       </a>
-
-      <nav class="topnav" aria-label="Desktop Navbar">
+      <nav class="main-nav" aria-label="Navigation principale">
         <a href="../index.html">Accueil</a>
-        <a href="all-reports.html">Signalements</a>
-        <a href="report.html" class="topnav-cta">
-          <i class="fa-regular fa-flag"></i>
-          Signaler
-        </a>
-        <a href="login.html" class="topnav-profile active" aria-label="Profile">
-          <i class="fa-regular fa-user"></i>
-        </a>
+        <a href="reports.html">Signalements</a>
+        <a href="report.html">Signaler</a>
       </nav>
-    </header>
-
-    <main class="auth">
-      <section class="auth-panel">
-        <h1 class="auth-title">Bon retour parmi nous.</h1>
-        <p class="auth-lead">Connectez-vous pour suivre vos signalements.</p>
-
-        <nav class="segmented" aria-label="Authentification">
-          <a href="login.html" aria-current="page">Connexion</a>
-          <a href="signup.html">Inscription</a>
+      <a class="login-link active" href="login.html"
+        ><i class="fa-regular fa-user"></i> Connexion</a
+      >
+      <details class="menu-dropdown">
+        <summary class="menu-toggle" aria-label="Ouvrir le menu">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </summary>
+        <div class="header-menu">
+        <nav aria-label="Menu principal">
+          <a href="../index.html"><i class="fa-solid fa-house"></i> Accueil</a>
+          <a href="reports.html"><i class="fa-solid fa-map"></i> Signalements</a>
+          <a href="report.html"><i class="fa-solid fa-pen-to-square"></i> Signaler</a>
+          <a href="login.html"><i class="fa-regular fa-user"></i> Connexion</a>
         </nav>
-
-        <!-- TODO: point action at the real sign-in endpoint (use method="post" then) -->
-        <form class="auth-form" action="profile.html" method="get" novalidate>
-          <div class="field">
-            <label class="label" for="email">Adresse e-mail</label>
-            <div class="input">
-              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.com" required aria-describedby="email-error">
+        <div class="theme-options">
+          <span>Thème</span>
+          <div>
+            <button type="button" disabled><i class="fa-solid fa-sun"></i> Clair</button>
+            <button type="button" disabled><i class="fa-solid fa-moon"></i> Sombre</button>
             </div>
-            <span class="field__error" id="email-error">Veuillez saisir une adresse e-mail valide.</span>
-          </div>
-
-          <div class="field">
-            <label class="label" for="password">Mot de passe</label>
-            <div class="input">
-              <i class="fa-solid fa-lock" aria-hidden="true"></i>
-              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Votre mot de passe" required aria-describedby="password-error">
-              <button type="button" class="toggle-pw" aria-label="Afficher le mot de passe">
-                <i class="fa-regular fa-eye"></i>
-              </button>
-            </div>
-            <span class="field__error" id="password-error">Veuillez saisir votre mot de passe.</span>
-          </div>
-
-          <div class="row-between">
-            <label class="check">
-              <input type="checkbox" name="remember" checked>
-              <span>Rester connecté</span>
-            </label>
-            <a href="#" class="auth-link">Mot de passe oublié ?</a>
-          </div>
-
-          <button class="auth-submit" type="submit">
-            <span>Se connecter</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </form>
-
-        <p class="foot-note">Pas encore de compte ? <a href="signup.html">Créer un compte</a></p>
-      </section>
-
-      <div class="auth-photo">
-        <img src="../assets/images/illustrations/cityimage.png" alt="">
+          </details>
+        </div>
       </div>
+    </header>
+    <main class="page-main login-layout">
+      <section class="login-panel">
+        <p class="eyebrow">HEUREUX DE VOUS REVOIR</p>
+        <h1>Connexion</h1>
+        <p class="lead">
+          Connectez-vous pour participer à la vie de votre quartier.
+        </p>
+        <form id="login-form" class="panel form-panel">
+          <label for="email">Adresse e-mail</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="vous@exemple.fr"
+            required
+          />
+          <label for="password">Mot de passe</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Votre mot de passe"
+            required
+            minlength="4"
+          />
+          <button class="button primary submit-button" type="submit">
+            Se connecter <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <p class="form-message" id="login-message" role="status"></p>
+        </form>
+        <div class="signup-note">
+          <p>Pas de compte ?</p>
+          <a class="action-link" href="register.html">Inscrivez-vous</a>
+        </div>
+      </section>
+      <aside class="login-illustration" aria-label="Illustration Novaria">
+        <span class="illustration-sun"></span>
+        <span class="illustration-shield"
+          ><i class="fa-solid fa-check"></i
+        ></span>
+        <h2>Chaque geste compte.</h2>
+        <p>Ensemble, prenons soin de notre ville.</p>
+      </aside>
     </main>
-
-    <nav class="tabbar" aria-label="Main navigation">
-      <a href="../index.html" class="tab" aria-label="Home"><i class="fa-solid fa-house"></i></a>
-      <a href="all-reports.html" class="tab" aria-label="Reports"><i class="fa-solid fa-list-check"></i></a>
-      <a href="report.html" class="tab" aria-label="Report"><i class="fa-regular fa-flag"></i></a>
-      <a href="login.html" class="tab active" aria-label="Profile"><i class="fa-regular fa-user"></i></a>
+    <footer class="site-footer">
+      <a class="brand" href="../index.html" aria-label="Novaria, accueil"
+        ><img class="brand-logo" src="../assets/logo.png" alt="Novaria"
+      /></a><span>Une ville plus attentive, ensemble.</span
+      ><span>© 2026 Ville de Novaria</span>
+    </footer>
+    <nav class="mobile-nav" aria-label="Navigation mobile">
+      <a href="../index.html"
+        ><i class="fa-solid fa-house"></i><span>Accueil</span></a
+      >
+      <a href="reports.html"
+        ><i class="fa-solid fa-map"></i><span>Signalements</span></a
+      >
+      <a class="mobile-create" href="report.html"
+        ><i class="fa-solid fa-pen-to-square"></i><span>Signaler</span></a
+      >
+      <a class="active" href="login.html"
+        ><i class="fa-regular fa-user"></i><span>Profil</span></a
+      >
     </nav>
-
-  </div>
-  <script src="../js/auth.js"></script>
-</body>
+  </body>
 </html>
