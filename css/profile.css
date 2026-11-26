@@ -1,0 +1,16 @@
+/* Profile page */
+.profile-page { max-width: 480px; }
+.profile-card { display: grid; justify-items: center; gap: 6px; padding: 28px 20px; text-align: center; }
+.profile-avatar {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 8px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--blue);
+  background: #eaf4ff;
+  font: 800 28px Manrope, sans-serif;
+}
+.profile-card h2 { margin: 0; overflow-wrap: anywhere; }
+.profile-card p { margin: 0 0 14px; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }

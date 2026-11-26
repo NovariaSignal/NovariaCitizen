@@ -8,12 +8,20 @@ form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const name = nameInput.value.trim();
-    const email = emailInput.value.trim();
+    const email = emailInput.value.trim().toLowerCase();
     const password = passwordInput.value;
+
+    // "required" accepts a name made only of spaces, so check after trimming
+    if (!name) {
+        message.textContent = "Veuillez saisir votre nom.";
+        message.style.color = "red";
+        return;
+    }
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const exists = users.some((u) => u.email === email);
+    // lowercase the saved email too, for accounts created before this fix
+    const exists = users.some((u) => u.email.toLowerCase() === email);
 
     if (exists) {
         message.textContent = "Identifiants existant";
@@ -23,6 +31,8 @@ form.addEventListener("submit", async (event) => {
         users.push({ name: name, email: email, password: password });
         localStorage.setItem("users", JSON.stringify(users));
 
-        window.location.href = "./login.html";
+
+        localStorage.setItem("currentUser", JSON.stringify({ name: name, email: email }));
+        window.location.href = "../index.html"; 
     }
 })
