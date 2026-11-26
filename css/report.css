@@ -64,6 +64,16 @@
 .form-panel textarea {
   resize: vertical;
 }
+.form-panel textarea + p {
+  margin: -3px 0 6px;
+  color: var(--muted);
+  font-size: 10px;
+  text-align: right;
+}
+.form-panel textarea + p span {
+  color: var(--blue);
+  font-weight: 700;
+}
 .image-field {
   position: relative;
   display: grid;
@@ -77,11 +87,25 @@
   cursor: pointer;
   font-weight: 500;
 }
-.image-label { margin-top: 5px; font-size: 11px; font-weight: 700; }
-.image-field > i { font-size: 20px; }
-.image-field > span { font-size: 11px; }
-.image-field small { color: var(--muted); font-size: 10px; }
-.image-field:focus-within { outline: 2px solid #8fbaf2; outline-offset: 2px; }
+.image-label {
+  margin-top: 5px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.image-field > i {
+  font-size: 20px;
+}
+.image-field > span {
+  font-size: 11px;
+}
+.image-field small {
+  color: var(--muted);
+  font-size: 10px;
+}
+.image-field:focus-within {
+  outline: 2px solid #8fbaf2;
+  outline-offset: 2px;
+}
 .image-field .image-input {
   position: absolute;
   width: 1px;
@@ -92,6 +116,46 @@
   white-space: nowrap;
   clip-path: inset(50%);
   border: 0;
+}
+.image-preview {
+  position: relative;
+  width: 180px;
+  margin: 15px auto;
+  text-align: center;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.image-preview button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #ef4444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.image-preview button:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.image-preview[hidden] {
+  display: none;
 }
 .required {
   color: #d9715d;
