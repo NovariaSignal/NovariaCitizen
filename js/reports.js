@@ -36,6 +36,10 @@ reports.forEach((report) => {
     const location = document.createElement("p");
     location.textContent = report.location;
     location.classList.add("report-location");
+    
+    const status = document.createElement("p");
+    status.textContent = report.status || "En attente de traitement";
+    status.classList.add("report-status");
 
     const confirmer = document.createElement("button");
 
@@ -72,8 +76,8 @@ reports.forEach((report) => {
     card.appendChild(title);
     card.appendChild(badge);
     card.appendChild(location);
+    card.appendChild(status);
     card.appendChild(description);
-
     if (report.image) {
         const image = document.createElement("img");
         image.src = report.image;

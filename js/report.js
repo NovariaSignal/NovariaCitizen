@@ -59,7 +59,9 @@ form.addEventListener("submit", (e) => {
         location,
         image: null,
         confirmations: 0,
-        isConfirmed: false
+        isConfirmed: false,
+        status: "En attente"
+
     };
 
     function saveReport() {
