@@ -58,7 +58,11 @@
         <p class="eyebrow">REJOIGNEZ VOTRE COMMUNAUTÉ</p>
         <h1>Inscription</h1>
         <p class="lead">Créez un compte pour participer à la vie de votre quartier.</p>
-       <form id="signup-form" class="panel form-panel">
+        <nav class="segmented" aria-label="Connexion ou inscription">
+          <a href="login.html">Connexion</a>
+          <a href="signup.html" aria-current="page">Inscription</a>
+        </nav>
+        <form id="signup-form" class="panel form-panel">
           <label for="name">Nom complet</label>
           <input id="name" name="name" autocomplete="name" required />
           <label for="email">Adresse e-mail</label>
@@ -84,10 +88,6 @@
           </button>
           <p class="form-message" id="signup-message" role="status"></p>
         </form>
-        <div class="signup-note">
-          <p>Vous avez déjà un compte ?</p>
-          <a class="action-link" href="login.html">Connectez-vous</a>
-        </div>
       </section>
       <aside class="login-illustration" aria-label="Illustration Novaria">
         <span class="illustration-sun"></span>
