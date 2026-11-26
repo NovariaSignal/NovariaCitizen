@@ -14,3 +14,5 @@
 }
 .profile-card h2 { margin: 0; overflow-wrap: anywhere; }
 .profile-card p { margin: 0 0 14px; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+.my-reports-title { margin-top: 28px; }
+.report-list:not(:empty) + .empty-message { display: none; }

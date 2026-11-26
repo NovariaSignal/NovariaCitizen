@@ -16,6 +16,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/reports.css" />
     <link rel="stylesheet" href="../css/profile.css" />
   </head>
   <body>
@@ -67,6 +68,9 @@
           <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Déconnexion
         </button>
       </section>
+      <h2 class="my-reports-title">Mes signalements</h2>
+      <div class="report-list" id="report-list" data-mine></div>
+      <p class="empty-message">Aucun signalement pour le moment.</p>
     </main>
 
     <footer class="site-footer">
@@ -83,6 +87,7 @@
       <a class="active" href="profile.html"><i class="fa-regular fa-user"></i><span>Profil</span></a>
     </nav>
 
+    <script src="../js/reports.js"></script>
     <script src="../js/profile.js" type="module"></script>
     <script src="../js/auth.js" type="module"></script>
   </body>
