@@ -76,7 +76,7 @@
             aria-label="Rechercher un signalement"
         /></label>
         <select id="category-filter" aria-label="Filtrer par catégorie">
-          <option value="Tous">Toutes les catégories</option>
+          <option value="">Toutes les catégories</option>
           <option value="Voirie">Voirie</option>
           <option value="Propreté">Propreté</option>
           <option value="Éclairage">Éclairage</option>
@@ -86,8 +86,6 @@
 
       <div class="results-heading">
         <span id="results-count">Signalements récents</span
-        ><span
-          ><i class="fa-solid fa-circle" aria-hidden="true"></i> En cours</span
         >
       </div>
       <div class="report-list" id="report-list" aria-live="polite"></div>
@@ -115,5 +113,7 @@
         ><i class="fa-regular fa-user"></i><span>Profil</span></a
       >
     </nav>
+
+    <script src="../js/reports.js"></script>
   </body>
 </html>

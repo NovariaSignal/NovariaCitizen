@@ -66,7 +66,7 @@
 
         <form class="panel form-panel" id="report-form">
           <label for="title"
-            >Que se passe-t-il ? <span class="required">*</span></label
+            >Titre <span class="required">*</span></label
           >
           <input
             id="title"
@@ -86,6 +86,19 @@
             <option>Éclairage</option>
             <option>Autre</option>
           </select>
+
+          <label for="description"
+            >Description <span class="required">*</span></label
+          >
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            maxlength="200"
+            placeholder="Décrivez le problème en détail..."
+            required
+          ></textarea>
+          <p><span id="count">0</span>/200 caractères</p>
 
           <label for="location"
             >Où se trouve l’incident ? <span class="required">*</span></label
@@ -116,6 +129,12 @@
               accept="image/jpeg,image/png,image/webp"
             />
           </label>
+          <div id ="image-preview" class="image-preview" hidden>
+            <img id="preview-img" src="" alt="Aperçu de l'image sélectionnée" />
+            <button type="button" id="remove-image" class="remove-image">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
           <p class="privacy-note">
             <i class="fa-solid fa-eye"></i> Votre signalement sera visible par
             tous.
@@ -148,5 +167,10 @@
         ><i class="fa-regular fa-user"></i><span>Profil</span></a
       >
     </nav>
+
+
+
+    <script src="../js/report.js"></script>
+
   </body>
 </html>
