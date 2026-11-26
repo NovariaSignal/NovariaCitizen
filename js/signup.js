@@ -1,3 +1,5 @@
+import { loadUsers, saveUsers, saveCurrentUser } from "./users.js";
+
 const form = document.getElementById("signup-form");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
@@ -18,7 +20,7 @@ form.addEventListener("submit", async (event) => {
         return;
     }
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const users = loadUsers();
 
     // lowercase the saved email too, for accounts created before this fix
     const exists = users.some((u) => u.email.toLowerCase() === email);
@@ -28,11 +30,11 @@ form.addEventListener("submit", async (event) => {
         message.style.color = "red";
         return;
     } else {
-        users.push({ name: name, email: email, password: password });
-        localStorage.setItem("users", JSON.stringify(users));
+        const user = { id: crypto.randomUUID(), name: name, email: email, password: password };
+        users.push(user);
+        saveUsers(users);
 
-
-        localStorage.setItem("currentUser", JSON.stringify({ name: name, email: email }));
+        saveCurrentUser(user);
         window.location.href = "../index.html"; 
     }
 })
