@@ -9,9 +9,9 @@ const categoryIcones = {
 
 // the profile page marks its list with "data-mine" to show only your own reports
 const userId = JSON.parse(localStorage.getItem("currentUser"))?.id;
-const shownReports = reportList.hasAttribute("data-mine")
+const shownReports = (reportList.hasAttribute("data-mine")
     ? reports.filter((report) => report.userId && report.userId === userId)
-    : reports;
+    : reports).reverse();
 
 shownReports.forEach((report) => {
 
