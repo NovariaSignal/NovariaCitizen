@@ -15,8 +15,12 @@
 }
 .form-panel input:focus { border-color: #8fbaf2; box-shadow: 0 0 0 3px #2878e812; }
 .submit-button { width: 100%; margin-top: 6px; }
-.signup-note { display: grid; justify-items: center; gap: 8px; margin-top: 14px; color: var(--muted); text-align: center; font-size: 11px; }
-.signup-note p { margin: 0; }
+/* Connexion / Inscription switcher */
+.segmented { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 12px; padding: 4px; border-radius: 14px; background: white; }
+.segmented a { display: grid; min-height: 40px; place-items: center; border-radius: 10px; font-size: 13px; font-weight: 500; transition: color .15s; }
+.segmented a:hover { color: var(--blue); }
+.segmented a[aria-current="page"] { color: white; background: linear-gradient(to right, #033a73, #05498f 35%, #0873e0); }
+.segmented a:focus-visible { outline: 3px solid #2878e833; }
 .form-message { margin: 5px 0 0; color: #258d67; font-size: 11px; }
 .login-illustration {
   position: relative;

@@ -7,7 +7,13 @@ const categoryIcones = {
     "Autre": { icon: "fa-circle-exclamation", style: "other" }
 };
 
-reports.forEach((report) => {
+// the profile page marks its list with "data-mine" to show only your own reports
+const userId = JSON.parse(localStorage.getItem("currentUser"))?.id;
+const shownReports = reportList.hasAttribute("data-mine")
+    ? reports.filter((report) => report.userId && report.userId === userId)
+    : reports;
+
+shownReports.forEach((report) => {
 
     const categoryIcone = categoryIcones[report.category] || categoryIcones["Autre"];
 
@@ -95,7 +101,8 @@ reports.forEach((report) => {
 
 const reportSearch = document.getElementById("report-search");
 
-reportSearch.addEventListener("input", () => {
+// "?." because the profile page has no search box or filter
+reportSearch?.addEventListener("input", () => {
 
     const search = reportSearch.value.toLowerCase();
     const cards = document.querySelectorAll(".report-card");
@@ -116,7 +123,7 @@ reportSearch.addEventListener("input", () => {
 });
 const categoryFilter = document.getElementById("category-filter");
 
-categoryFilter.addEventListener("change", () => {
+categoryFilter?.addEventListener("change", () => {
 
     const category = categoryFilter.value;
     const cards = document.querySelectorAll(".report-card");

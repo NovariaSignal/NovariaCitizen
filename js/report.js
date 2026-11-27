@@ -53,6 +53,8 @@ form.addEventListener("submit", (e) => {
     const image = imageInput.files[0];
 
     const report = {
+        // who made it, so the profile page can list it (empty if not logged in)
+        userId: JSON.parse(localStorage.getItem("currentUser"))?.id,
         title,
         category,
         description,
