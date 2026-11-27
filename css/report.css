@@ -242,3 +242,11 @@
 :root[data-theme="dark"] .privacy-note i {
   color: #5fd0a8;
 }
+
+@media (max-width: 700px) {
+  .form-panel input,
+  .form-panel textarea,
+  .form-panel select {
+    font-size: 16px;
+  }
+}

@@ -147,3 +147,13 @@
         font-size: 14px;
     }
 }
+
+
+:root[data-theme="dark"] .profile-card {
+    border-color: var(--line);
+    background: var(--surface);
+}
+
+:root[data-theme="dark"] .profile-avatar {
+    background: var(--surface-hover);
+}

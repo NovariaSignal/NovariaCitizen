@@ -441,3 +441,10 @@
   background: #14362f;
   box-shadow: inset 0 0 0 1.5px #2a6b57;
 }
+
+@media (max-width: 700px) {
+  .search input,
+  .report-tools select {
+    font-size: 16px;
+  }
+}
