@@ -851,8 +851,14 @@ h2 {
 :root[data-theme="dark"] .city-art {
   background: var(--surface);
 }
-:root[data-theme="dark"] .city-art img {
-  filter: brightness(0.85);
+.city-art .city-night {
+  display: none;
+}
+:root[data-theme="dark"] .city-art .city-day {
+  display: none;
+}
+:root[data-theme="dark"] .city-art .city-night {
+  display: block;
 }
 :root[data-theme="dark"] .brand-logo {
   filter: brightness(1.35);
