@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f5f8fc" />
+    <link rel="icon" href="assets/icon/favicon.ico" type="image/x-icon" />
     <title>Novaria — La ville, ensemble</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,6 +17,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="/js/theme.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -44,9 +46,9 @@
         <div class="theme-options">
           <span>Thème</span>
           <div>
-            <button type="button" disabled><i class="fa-solid fa-sun"></i> Clair</button>
-            <button type="button" disabled><i class="fa-solid fa-moon"></i> Sombre</button>
-            </div>
+            <button type="button" data-theme-choice="light"><i class="fa-solid fa-sun"></i> Clair</button>
+            <button type="button" data-theme-choice="dark"><i class="fa-solid fa-moon"></i> Sombre</button>
+          </div>
           </details>
         </div>
       </div>
@@ -85,22 +87,23 @@
 
       <section class="stats" aria-label="Novaria en chiffres">
         <article>
-          <span class="stat-icon blue"
-            ><i class="fa-solid fa-bullhorn"></i
-          ></span>
-          <div><strong>128</strong><small>Signalements ce mois</small></div>
+          <span class="stat-icon blue">
+            <i class="fa-solid fa-bullhorn"></i>
+          </span>
+          <div>
+            <strong id="total-reports">0</strong>
+            <small>Signalements</small>
+          </div>
         </article>
+
         <article>
-          <span class="stat-icon green"
-            ><i class="fa-solid fa-circle-check"></i
-          ></span>
-          <div><strong>86</strong><small>Incidents résolus</small></div>
-        </article>
-        <article>
-          <span class="stat-icon purple"
-            ><i class="fa-solid fa-users"></i
-          ></span>
-          <div><strong>2 406</strong><small>Citoyens engagés</small></div>
+          <span class="stat-icon purple">
+            <i class="fa-solid fa-users"></i>
+          </span>
+          <div>
+            <strong id="total-citizens">0</strong>
+            <small>Citoyens engagés</small>
+          </div>
         </article>
       </section>
 
@@ -110,49 +113,12 @@
             <p class="eyebrow">PRÈS DE CHEZ VOUS</p>
             <h2>Derniers signalements</h2>
           </div>
-          <a class="inline-link action-link" href="pages/reports.html"
-            >Tout voir <i class="fa-solid fa-arrow-right"></i
-          ></a>
+          <a class="inline-link action-link" href="pages/reports.html">
+            Tout voir <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
-        <div class="simple-reports">
-          <article class="mini-report">
-            <span class="category-icon"><i class="fa-solid fa-road"></i></span>
-            <div>
-              <strong>Nid-de-poule important</strong
-              ><small
-                ><i class="fa-solid fa-location-dot"></i> Rue des Lilas · Il y a
-                12 min</small
-              >
-            </div>
-            <span class="status-dot"></span>
-          </article>
-          <article class="mini-report">
-            <span class="category-icon green"
-              ><i class="fa-solid fa-trash-can"></i
-            ></span>
-            <div>
-              <strong>Dépôt sauvage</strong
-              ><small
-                ><i class="fa-solid fa-location-dot"></i> Parc des Tilleuls · Il
-                y a 1 h</small
-              >
-            </div>
-            <span class="status-dot"></span>
-          </article>
-          <article class="mini-report">
-            <span class="category-icon yellow"
-              ><i class="fa-solid fa-lightbulb"></i
-            ></span>
-            <div>
-              <strong>Éclairage en panne</strong
-              ><small
-                ><i class="fa-solid fa-location-dot"></i> Place du Marché · Il y
-                a 2 h</small
-              >
-            </div>
-            <span class="status-dot"></span>
-          </article>
-        </div>
+
+        <div class="simple-reports" id="latest-reports"></div>
       </section>
 
       <section class="callout">
@@ -189,5 +155,6 @@
     </nav>
 
     <script src="js/auth.js" type="module"></script>
+    <script src="js/home.js" type="module"></script>
   </body>
 </html>

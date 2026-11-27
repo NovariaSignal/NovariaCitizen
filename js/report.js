@@ -1,3 +1,9 @@
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+if(!currentUser) {
+    window.location.replace("../pages/login.html");
+}
+
 
 const reports = JSON.parse(localStorage.getItem("reports")) || [];
 
@@ -53,8 +59,8 @@ form.addEventListener("submit", (e) => {
     const image = imageInput.files[0];
 
     const report = {
-        // who made it, so the profile page can list it (empty if not logged in)
-        userId: JSON.parse(localStorage.getItem("currentUser"))?.id,
+        userId: currentUser.id,
+        userName: currentUser.name,
         title,
         category,
         description,
@@ -62,7 +68,8 @@ form.addEventListener("submit", (e) => {
         image: null,
         confirmations: 0,
         isConfirmed: false,
-        status: "En attente"
+        status: "En attente",
+        createdAt: new Date().toISOString(),
 
     };
 
@@ -78,6 +85,8 @@ form.addEventListener("submit", (e) => {
 
         imagePreview.hidden = true;
         previewImg.src = "";
+
+        window.location.href = "../pages/profile.html";
     }
 
     if (image) {

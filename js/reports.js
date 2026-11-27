@@ -23,6 +23,9 @@ shownReports.forEach((report) => {
     const title = document.createElement("h3");
     title.textContent = report.title;
     title.classList.add("report-title");
+    const author = document.createElement("p");
+    author.textContent = `Signalé par ${report.userName}`;
+    author.classList.add("report-author");
 
     const category = document.createElement("p");
     category.classList.add("report-category");
@@ -52,6 +55,10 @@ shownReports.forEach((report) => {
     confirmer.classList.add("confirm-button");
     confirmer.classList.toggle("confirmed", report.isConfirmed === true);
 
+    if(report.userId === userId) {
+         confirmer.disabled = true;
+    }
+
     if (report.isConfirmed === true) {
         confirmer.textContent = "Confirmé";
     }
@@ -62,8 +69,14 @@ shownReports.forEach((report) => {
     const confirmations = document.createElement("p");
     confirmations.textContent = report.confirmations + " confirmations";
     confirmations.classList.add("report-confirmations");
+    
 
     confirmer.addEventListener("click", () => {
+        if(!userId) {
+            window.location.href = "../pages/login.html";
+            return;
+        }
+
         if (report.isConfirmed === false) {
             report.isConfirmed = true;
             report.confirmations++;
@@ -80,6 +93,7 @@ shownReports.forEach((report) => {
     });
     card.appendChild(category);
     card.appendChild(title);
+    card.appendChild(author);
     card.appendChild(badge);
     card.appendChild(location);
     card.appendChild(status);

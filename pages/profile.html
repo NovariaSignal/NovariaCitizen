@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f5f8fc" />
+    <link rel="icon" href="../assets/icon/favicon.ico" type="image/x-icon" />
     <title>Mon profil — Novaria</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -54,24 +55,41 @@
       </details>
     </header>
 
+
     <main id="profile" class="profile-page" hidden>
-      <p class="eyebrow">VOTRE ESPACE</p>
-      <h1>Mon profil</h1>
-      <section class="panel profile-card">
-        <span class="profile-avatar" id="profile-avatar" aria-hidden="true"></span>
-        <h2 id="profile-name"></h2>
-        <p id="profile-email"></p>
-        <a class="button primary" href="edit-profile.html">
-          <i class="fa-solid fa-pen" aria-hidden="true"></i> Modifier mon profil
-        </a>
-        <button class="button secondary" type="button" id="logout-button">
-          <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Déconnexion
-        </button>
-      </section>
-      <h2 class="my-reports-title">Mes signalements</h2>
-      <div class="report-list" id="report-list" data-mine></div>
-      <p class="empty-message">Aucun signalement pour le moment.</p>
+        <p class="eyebrow">VOTRE ESPACE</p>
+        <h1>Mon profil</h1>
+
+        <section class="panel profile-card">
+
+            <span class="profile-avatar" id="profile-avatar" aria-hidden="true"></span>
+
+            <h2 id="profile-name"></h2>
+            <p id="profile-email"></p>
+
+            <div class="profile-actions">
+                <a class="button primary" href="edit-profile.html">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    Modifier
+                </a>
+
+                <button class="button secondary" type="button" id="logout-button">
+                    <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                    Déconnexion
+                </button>
+            </div>
+
+        </section>
+
+        <section class="my-reports-section">
+            <h2 class="my-reports-title">Mes signalements</h2>
+
+            <div class="report-list" id="report-list" data-mine></div>
+
+            <p class="empty-message">Aucun signalement pour le moment.</p>
+        </section>
     </main>
+
 
     <footer class="site-footer">
       <a class="brand" href="../index.html" aria-label="Novaria, accueil">

@@ -202,3 +202,43 @@
     padding: 15px;
   }
 }
+:root[data-theme="dark"] .form-panel {
+  background: var(--surface);
+}
+:root[data-theme="dark"] .form-panel input,
+:root[data-theme="dark"] .form-panel textarea,
+:root[data-theme="dark"] .form-panel select {
+  border-color: var(--line);
+  color: var(--ink);
+  background-color: var(--background);
+}
+:root[data-theme="dark"] .form-panel input:focus,
+:root[data-theme="dark"] .form-panel textarea:focus,
+:root[data-theme="dark"] .form-panel select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px #66a6ff33;
+}
+:root[data-theme="dark"] .image-field {
+  border-color: #3b5c8f;
+  background: var(--background);
+}
+:root[data-theme="dark"] .image-field:focus-within {
+  outline-color: var(--blue);
+}
+:root[data-theme="dark"] .image-preview img {
+  border-color: var(--line);
+}
+:root[data-theme="dark"] .image-preview button {
+  color: #ff7b7b;
+  background: var(--surface);
+}
+:root[data-theme="dark"] .image-preview button:hover {
+  color: white;
+  background: #dc3f3f;
+}
+:root[data-theme="dark"] .required {
+  color: #f08c78;
+}
+:root[data-theme="dark"] .privacy-note i {
+  color: #5fd0a8;
+}

@@ -1,18 +1,149 @@
-/* Profile page */
-.profile-page { max-width: 480px; }
-.profile-card { display: grid; justify-items: center; gap: 6px; padding: 28px 20px; text-align: center; }
-.profile-avatar {
-  display: grid;
-  width: 72px;
-  height: 72px;
-  margin-bottom: 8px;
-  place-items: center;
-  border-radius: 50%;
-  color: var(--blue);
-  background: #eaf4ff;
-  font: 800 28px Manrope, sans-serif;
+
+.profile-page {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+    box-sizing: border-box;
 }
-.profile-card h2 { margin: 0; overflow-wrap: anywhere; }
-.profile-card p { margin: 0 0 14px; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
-.my-reports-title { margin-top: 28px; }
-.report-list:not(:empty) + .empty-message { display: none; }
+
+.profile-page h1 {
+    margin-bottom: 20px;
+}
+
+/* Profile card */
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.profile-avatar {
+    display: grid;
+    width: 68px;
+    height: 68px;
+    flex-shrink: 0;
+    margin-bottom: 6px;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--blue);
+    background: #eaf4ff;
+    font: 800 26px Manrope, sans-serif;
+}
+
+.profile-card h2 {
+    margin: 0;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.profile-card p {
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+/* Profile buttons */
+.profile-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.profile-actions .button {
+    display: inline-flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0 6px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* My reports */
+.my-reports-section {
+    margin-top: 30px;
+}
+
+.my-reports-title {
+    margin: 0 0 18px;
+    font-size: 20px;
+}
+
+.report-list:not(:empty) + .empty-message {
+    display: none;
+}
+
+.empty-message {
+    padding: 28px 12px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 14px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 600px) {
+
+    .profile-page {
+        padding: 36px 24px 50px;
+    }
+
+    .profile-card {
+        padding: 32px 24px;
+    }
+
+    .profile-avatar {
+        width: 76px;
+        height: 76px;
+        font-size: 28px;
+    }
+
+    .profile-card h2 {
+        font-size: 22px;
+    }
+
+    .profile-actions {
+        max-width: 380px;
+        gap: 12px;
+    }
+
+    .profile-actions .button {
+        padding: 0 14px;
+        font-size: 13px;
+    }
+
+    .my-reports-section {
+        margin-top: 36px;
+    }
+}
+
+
+@media (min-width: 900px) {
+
+    .profile-page {
+        padding-top: 44px;
+    }
+
+    .profile-card {
+        padding: 36px;
+    }
+
+    .profile-actions .button {
+        font-size: 14px;
+    }
+}

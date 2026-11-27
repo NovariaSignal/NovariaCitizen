@@ -13,7 +13,6 @@ form.addEventListener("submit", async (event) => {
     const email = emailInput.value.trim().toLowerCase();
     const password = passwordInput.value;
 
-    // "required" accepts a name made only of spaces, so check after trimming
     if (!name) {
         message.textContent = "Veuillez saisir votre nom.";
         message.style.color = "red";
@@ -22,7 +21,6 @@ form.addEventListener("submit", async (event) => {
 
     const users = loadUsers();
 
-    // lowercase the saved email too, for accounts created before this fix
     const exists = users.some((u) => u.email.toLowerCase() === email);
 
     if (exists) {

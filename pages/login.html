@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f5f8fc" />
+    <link rel="icon" href="../assets/icon/favicon.ico" type="image/x-icon" />
     <title>Connexion — Novaria</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/login.css" />
+    <script src="../js/theme.js"></script>
   </head>
   <body>
     <!-- Header -->
@@ -35,10 +37,10 @@
           </nav>
           <div class="theme-options">
             <span>Thème</span>
-            <div>
-              <button type="button" disabled><i class="fa-solid fa-sun"></i> Clair</button>
-              <button type="button" disabled><i class="fa-solid fa-moon"></i> Sombre</button>
-            </div>
+          <div>
+            <button type="button" data-theme-choice="light"><i class="fa-solid fa-sun"></i> Clair</button>
+            <button type="button" data-theme-choice="dark"><i class="fa-solid fa-moon"></i> Sombre</button>
+          </div>
           </div>
         </div>
       </details>
@@ -50,7 +52,6 @@
         <h1>Connexion</h1>
         <p class="lead">Connectez-vous pour participer à la vie de votre quartier.</p>
 
-        <!-- Switch between the two pages -->
         <nav class="segmented" aria-label="Connexion ou inscription">
           <a href="login.html" aria-current="page">Connexion</a>
           <a href="signup.html">Inscription</a>
