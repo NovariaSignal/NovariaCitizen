@@ -1,5 +1,7 @@
+
 const reports = JSON.parse(localStorage.getItem("reports")) || [];
 const reportList = document.getElementById("report-list");
+
 const categoryIcones = {
     "Voirie": { icon: "fa-road", style: "road" },
     "Propreté": { icon: "fa-broom", style: "cleanliness" },
@@ -7,8 +9,19 @@ const categoryIcones = {
     "Autre": { icon: "fa-circle-exclamation", style: "other" }
 };
 
-// the profile page marks its list with "data-mine" to show only your own reports
 const userId = JSON.parse(localStorage.getItem("currentUser"))?.id;
+
+// initialize confirmations for old reports
+reports.forEach((report) => {
+    if (!Array.isArray(report.confirmedBy)) {
+        report.confirmedBy = [];
+    }
+
+    report.confirmations = report.confirmedBy.length;
+});
+
+localStorage.setItem("reports", JSON.stringify(reports));
+
 const shownReports = (reportList.hasAttribute("data-mine")
     ? reports.filter((report) => report.userId && report.userId === userId)
     : reports).reverse();
@@ -23,6 +36,7 @@ shownReports.forEach((report) => {
     const title = document.createElement("h3");
     title.textContent = report.title;
     title.classList.add("report-title");
+
     const author = document.createElement("p");
     author.textContent = `Signalé par ${report.userName}`;
     author.classList.add("report-author");
@@ -45,7 +59,7 @@ shownReports.forEach((report) => {
     const location = document.createElement("p");
     location.textContent = report.location;
     location.classList.add("report-location");
-    
+
     const status = document.createElement("p");
     status.textContent = report.status || "En attente de traitement";
     status.classList.add("report-status");
@@ -53,44 +67,52 @@ shownReports.forEach((report) => {
     const confirmer = document.createElement("button");
 
     confirmer.classList.add("confirm-button");
-    confirmer.classList.toggle("confirmed", report.isConfirmed === true);
 
-    if(report.userId === userId) {
-         confirmer.disabled = true;
+    const dejaConfirme = userId && report.confirmedBy.includes(userId);
+
+    confirmer.classList.toggle("confirmed", !!dejaConfirme);
+
+    // the author cannot confirm their own report
+    if (report.userId === userId) {
+        confirmer.disabled = true;
     }
 
-    if (report.isConfirmed === true) {
-        confirmer.textContent = "Confirmé";
-    }
-    else {
-        confirmer.textContent = "Confirmer";
-    }
+    confirmer.textContent = dejaConfirme ? "Confirmé" : "Confirmer";
 
     const confirmations = document.createElement("p");
     confirmations.textContent = report.confirmations + " confirmations";
     confirmations.classList.add("report-confirmations");
-    
 
     confirmer.addEventListener("click", () => {
-        if(!userId) {
+
+        if (!userId) {
             window.location.href = "../pages/login.html";
             return;
         }
 
-        if (report.isConfirmed === false) {
-            report.isConfirmed = true;
-            report.confirmations++;
-            confirmer.textContent = "Confirmé";
+        const index = report.confirmedBy.indexOf(userId);
+
+        if (index === -1) {
+            report.confirmedBy.push(userId);
         }
         else {
-            report.isConfirmed = false;
-            report.confirmations--;
-            confirmer.textContent = "Confirmer";
+            report.confirmedBy.splice(index, 1);
         }
-        confirmer.classList.toggle("confirmed", report.isConfirmed === true);
+
+        report.confirmations = report.confirmedBy.length;
+
+        const dejaConfirme = report.confirmedBy.includes(userId);
+
+        confirmer.textContent = dejaConfirme ? "Confirmé" : "Confirmer";
+
+        confirmer.classList.toggle("confirmed", dejaConfirme);
+
         confirmations.textContent = report.confirmations + " confirmations";
+
         localStorage.setItem("reports", JSON.stringify(reports));
+
     });
+
     card.appendChild(category);
     card.appendChild(title);
     card.appendChild(author);
@@ -98,6 +120,7 @@ shownReports.forEach((report) => {
     card.appendChild(location);
     card.appendChild(status);
     card.appendChild(description);
+
     if (report.image) {
         const image = document.createElement("img");
         image.src = report.image;
@@ -115,7 +138,6 @@ shownReports.forEach((report) => {
 
 const reportSearch = document.getElementById("report-search");
 
-// "?." because the profile page has no search box or filter
 reportSearch?.addEventListener("input", () => {
 
     const search = reportSearch.value.toLowerCase();
@@ -135,6 +157,7 @@ reportSearch?.addEventListener("input", () => {
     });
 
 });
+
 const categoryFilter = document.getElementById("category-filter");
 
 categoryFilter?.addEventListener("change", () => {

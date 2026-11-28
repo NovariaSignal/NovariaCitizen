@@ -67,7 +67,7 @@ form.addEventListener("submit", (e) => {
         location,
         image: null,
         confirmations: 0,
-        isConfirmed: false,
+        confirmedBy: [],
         status: "En attente",
         createdAt: new Date().toISOString(),
 
